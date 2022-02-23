@@ -14,3 +14,9 @@ steps:
 
 - script: |
     echo $(unitybuild.logsOutputPath)
+
+- task: UnityBuildTask@3
+  inputs:
+    buildTarget: 'standalone'
+    outputPath: '$(Build.BinariesDirectory)'
+    outputFileName: 'drop'
