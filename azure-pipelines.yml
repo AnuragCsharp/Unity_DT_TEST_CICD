@@ -2,8 +2,7 @@ trigger:
 - main
 
 pool:
-  name: default
-  demands: 2021.1.9f1
+  name: Windows Build
 
 steps:
 - task: UnityBuildTask@3
