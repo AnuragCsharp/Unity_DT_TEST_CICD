@@ -3,6 +3,7 @@ trigger:
 
 pool:
   name: default
+  demands: 2021.1.9f1
 
 steps:
 - task: UnityBuildTask@3
