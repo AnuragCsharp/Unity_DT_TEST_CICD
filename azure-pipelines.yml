@@ -11,7 +11,10 @@ pool:
   demands: Unity_2021.1.9f1
 
 steps:
-- task: UnityGetProjectVersionTask@1
+- task: UnityBuildTask@3
   inputs:
-    unityProjectPath: 'D:\Unity_Installed\2021.1.9f1'
-  
+    buildTarget: 'Win64'
+    unityEditorsPathMode: 'specify'
+    customUnityEditorsPath: '"D:\Unity_Installed\Unity Hub\Unity Hub.exe"'
+    outputPath: '$(Build.BinariesDirectory)'
+    outputFileName: 'Build'
