@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: :AnuragLocalMachine
+  name: :Unity_Agent_Local_Machine_Anurag
   demands: Unity_2021.1.9f1
 
 steps:
