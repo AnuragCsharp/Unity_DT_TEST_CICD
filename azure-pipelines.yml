@@ -8,13 +8,13 @@ trigger:
 
 pool:
   name: Unity_Agent_Local_Machine_Anurag
-  demands: Unity_2021.1.9f1
+  demands:  Unity_2021.2.3f1
 
 steps:
 - task: UnityBuildTask@3
   inputs:
     buildTarget: 'Win64'
     unityEditorsPathMode: 'specify'
-    customUnityEditorsPath: 'D:\Unity_Installed\Unity Hub'
+    customUnityEditorsPath: 'D:\Unity_Installed\2021.2.3f1\Editor'
     outputPath: '$(Build.BinariesDirectory)'
     outputFileName: 'Build'
