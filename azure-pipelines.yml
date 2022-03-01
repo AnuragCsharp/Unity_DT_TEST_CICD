@@ -1,16 +1,29 @@
 trigger:
-- main
+- master
 
 pool:
-  name: Windows Build
+      name: Unity_Agent_Local_Machine_Anurag
+     
 
 steps:
+- checkout: self
+  lfs: true
+  
 - task: UnityBuildTask@3
-  name: unitybuild
   inputs:
-    buildTarget: standalone
-    outputPath: $(Build.BinariesDirectory)
-    outputFileName: drop
+    buildTarget: 'standalone'
+    outputPath: '$(Build.BinariesDirectory)'
+    outputFileName: 'drop'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: $(Build.BinariesDirectory)
+    Contents: '**'
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+    CleanTargetFolder: true
+    OverWrite: true
 
-- script: |
-    echo $(unitybuild.logsOutputPath)
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Artifact: Build Output'
+  inputs:
+    targetPath: '$(Build.BinariesDirectory)'
+    artifact: build
