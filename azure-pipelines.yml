@@ -14,5 +14,7 @@ steps:
 - task: UnityBuildTask@3
   inputs:
     buildTarget: 'Win64'
+    unityEditorsPathMode: 'specify'
+    customUnityEditorsPath: 'D:\Unity_Installed\2021.1.9f1\Editor'
     outputPath: '$(Build.BinariesDirectory)'
-    outputFileName: 'WindowsBuild'
+    outputFileName: 'Build'
